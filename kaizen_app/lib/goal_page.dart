@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+// This import is for the page header. can be modified in header.dart
+import 'package:kaizen_app/widgets/header.dart';
+
 class GoalPage extends StatefulWidget {
   @override
   _GoalPageState createState() => _GoalPageState();
@@ -38,16 +41,7 @@ class _GoalPageState extends State<GoalPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Your Goals"),
-        leading: IconButton(
-          icon: Icon(Icons.logout),
-          tooltip: 'Logout',
-          onPressed: () {
-            Navigator.pushReplacementNamed(context, '/');
-          },
-        ),
-      ),
+      appBar: Header(title: 'Your Goals', showLogout: true), // Custom header with logout button
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(

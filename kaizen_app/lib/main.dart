@@ -125,6 +125,7 @@ import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'goal_page.dart';
 import 'reset_page.dart';
+import 'campaign_page.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -134,6 +135,7 @@ void main() {
       '/': (context) => LoginPage(),
       '/goal': (context) => GoalPage(),
       '/reset': (context) => ResetPage(),
+      '/campaign': (context) => CampaignPage(),
     },
   ));
 }
