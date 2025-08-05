@@ -47,7 +47,7 @@ class LoginPage extends StatelessWidget {
                     children: [
                       // Row 1: Login Header
                       Text(
-                        "Login",
+                        "Sign In",
                         style:
                             TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                       ),
@@ -59,6 +59,7 @@ class LoginPage extends StatelessWidget {
                         decoration: InputDecoration(labelText: "Username"),
                       ),
                       SizedBox(height: 20),
+                      
 
                       // Row 3: Password
                       TextField(
@@ -80,12 +81,62 @@ class LoginPage extends StatelessWidget {
 
                       // Row 5: Login Button
                       SizedBox(height: 20),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushReplacementNamed(context, '/goal');
-                        },
-                        child: Text("Log In"),
+                      Center(
+                        child: FractionallySizedBox(
+                          widthFactor: 0.8,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.pushReplacementNamed(context, '/goal');
+                            },
+                            child: Text("Sign In"),
+                          )
+                        )    
                       ),
+                      
+                      // Row 6: SSO Button
+                      SizedBox(height: 12),
+                      Center(
+                        child: FractionallySizedBox(
+                          widthFactor: 0.8,
+                          child: ElevatedButton.icon(
+                          // The 'onPressed' callback is required. It's what happens when you click the button.
+                          // For now, it does nothing. An empty function means the button is enabled.
+                          // If you set it to 'null', the button would be disabled.
+                          onPressed: () {
+                            // You can add actions here, like showing a message.
+                            print('Directing you to the SSO login page...');
+                          },
+
+                          // The 'icon' property lets us add an icon to the button.
+                          icon: const Icon(Icons.key),
+
+                          // The 'label' is the main content of the button, usually text.
+                          label: const Text('Continue with SSO'),
+
+                          // THIS IS WHERE THE STYLING HAPPENS!
+                          // We use the 'style' property and the ButtonStyle.styleFrom() helper.
+                          style: ElevatedButton.styleFrom(
+                            // foregroundColor is the color of the text and icon.
+                            foregroundColor: Colors.black,
+
+                            // backgroundColor is the button's fill color.
+                            backgroundColor: Colors.white,
+
+                            // padding adds space between the button's edge and its content.
+                            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+
+                            // shape defines the button's shape. We'll make it rounded.
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+
+                            // elevation controls the size of the shadow.
+                            elevation: 5,
+                          )
+                      ) 
+                        
+                      )
+                      )
                     ],
                   ),
                 ),
