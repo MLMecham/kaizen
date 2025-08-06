@@ -1,0 +1,9 @@
+name: db_test
+description: A simple script to test PostgreSQL connection
+version: 1.0.0
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  postgres: ^2.6.2
