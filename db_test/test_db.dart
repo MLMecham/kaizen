@@ -53,7 +53,7 @@ Future<void> addUser({
 
 Future<void> printAllUsers(PostgreSQLConnection connection) async {
   try {
-    final results = await connection.query('SELECT id, username, email, role, created_at, password_hash FROM "user"');
+    final results = await connection.query('SELECT id, username, email, role, created_at, password_hash FROM "users"');
 
     if (results.isEmpty) {
       print('No users found.');
@@ -132,6 +132,9 @@ Future<void> main() async {
     await connection.open();
     print('✅ Connected to the database!');
 
+
+    
+
     
 
     // Add a user
@@ -143,16 +146,16 @@ Future<void> main() async {
     // );
 
     // Print all users
-  await printAllUsers(connection);
+  // await printAllUsers(connection);
 
-    // Verify a user password
-    await verifyUserPassword(
-      connection: connection, 
-      username: "mitch", 
-      passwordToCheck: "easy");
+  //   // Verify a user password
+  //   await verifyUserPassword(
+  //     connection: connection, 
+  //     username: "mitch", 
+  //     passwordToCheck: "easy");
 
       
-      await connection.close();
+  //     await connection.close();
   } catch (e) {
     print('❌ Error: $e');
   }
